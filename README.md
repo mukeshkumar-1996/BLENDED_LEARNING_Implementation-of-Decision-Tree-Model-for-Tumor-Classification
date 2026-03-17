@@ -18,13 +18,43 @@ To implement and evaluate a Decision Tree model to classify tumors as benign or 
 ```
 /*
 Program to  implement a Decision Tree model for tumor classification.
-Developed by: 
-RegisterNumber:  
+Developed by: V MUKESHKUMAR
+RegisterNumber:  25012063
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split 
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score,confusion_matrix,classification_report
+data=pd.read_csv('tumor.csv')
+print(data.head())
+print(data.columns)
+x=data.drop(['Class'], axis=1)
+y=data['Class']
+x_train, x_test, y_train, y_test=train_test_split(x, y, test_size=0.3, random_state=42)
+model=DecisionTreeClassifier()
+model.fit(x_train,y_train)
+y_pred=model.predict(X_test)
+accuracy=accuracy_score(y_test,y_pred)
+print("Name: V MUKESHKUMAR")
+print("Register number : 25012063")
+print("Accuracy:",accuracy)
+print("Classification Report:\n",classification_report(y_test,y_pred))
+conf_matrix=confusion_matrix(y_test,y_pred)
+sns.heatmap(conf_matrix,annot=True,fmt="d",cmap="Blues")
+plt.xlabel("Predicted")
+plt.ylabel("Actual")
+plt.title("Confusion Matrix")
+plt.show()
 */
 ```
 
 ## Output:
-![simple linear regression model for predicting the marks scored](sam.png)
+<img width="835" height="345" alt="Screenshot 2026-03-17 201032" src="https://github.com/user-attachments/assets/03917beb-4d6e-48fa-b619-9785f7e010ff" />
+<img width="579" height="277" alt="Screenshot 2026-03-17 201040" src="https://github.com/user-attachments/assets/079c9e52-70a4-4880-a6d7-cafa2f4a08de" />
+
+<img width="777" height="570" alt="Screenshot 2026-03-17 201047" src="https://github.com/user-attachments/assets/206d7f70-6ee8-4377-aeb1-860a285c7782" />
 
 
 ## Result:
